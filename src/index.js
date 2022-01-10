@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import SearchList from '../src/components/SearchList';
+import Detail from '../src/components/Detail';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" exact element={ <App />} />
+      <Route path="/search" element={<SearchList />} />
+      <Route path="/detail/:id" element={<Detail />} />
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
